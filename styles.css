@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1C1C1C;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #1F2937;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: #4ADF86;
+}
+
+.subtitle {
+    color: #D5D4D8;
+    margin-bottom: 2rem;
+}
+
+.generate-btn {
+    background-color: #10B981;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.generate-btn:hover {
+    background-color: #0EA472;
+}
+
+.password-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.password {
+    background-color: #273549;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    flex: 1;
+    color: #55F991;
+    font-family: monospace;
+    min-height: 32px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: all;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.password:hover {
+    background-color: #324054;
+}
+
+.password:active {
+    transform: scale(0.98);
+}
+
+/* Add this new class for copy feedback */
+.password.copied {
+    background-color: #324054;
+    position: relative;
+}
+
+.password.copied::after {
+    content: 'Copied!';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4ADF86;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Update the copy-hint styles */
+.copy-hint {
+    position: static;
+    transform: none;
+    background-color: transparent;
+    color: #55F991;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    pointer-events: none;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    margin-left: 8px;
+}
+
+.password:hover .copy-hint {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Only show the hint when there's actually a password */
+.password:empty .copy-hint {
+    display: none;
+} 
